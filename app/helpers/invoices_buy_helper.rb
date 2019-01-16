@@ -1,0 +1,2 @@
+module InvoicesBuyHelper
+end
