@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: cs__production
+  database: cs_production
   username: cs
-  password: <%= ENV['CS_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DS_HOMEPAGE_DATABASE_PASSWORD'] %>
