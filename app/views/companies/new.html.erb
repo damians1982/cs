@@ -1,0 +1,40 @@
+<div class="container">
+<nav>
+  <ul class="nav navbar-nav navbar-left">
+
+    <li><%= link_to "Companies: list",   companies_list_path %></li>
+    <li><%= link_to "Companies: add new", companies_new_path %></li>
+  </ul>
+</nav>
+</div>
+
+<div class="container">
+<h1>Companies#list</h1>
+<p>Find me in app/views/companies/list.html.erb</p>
+
+<%= form_tag("/companies/new", method: "post") do %>
+  <%= label_tag(:n, "Name: ") %>
+  <%= text_field_tag(:n,value=@name) %>
+  </br>
+
+  <%= label_tag(:m, "NIP: ") %>
+  <%= text_field_tag(:m,value=@nip) %>
+  </br>
+
+  <%= label_tag(:p,"Postal Code: ") %>
+  <%= text_field_tag(:p,value=@postal) %>
+  </br>
+
+  <%= label_tag(:s,"Street: ") %>
+  <%= text_field_tag(:s,value=@street) %>
+  </br>
+
+  <%= hidden_field_tag(:button,"yes") %>
+
+  <%= submit_tag("Save") %>
+<% end %>
+
+<% #byebug %>
+<p>Button=<%= @button %></p>
+
+</div>
