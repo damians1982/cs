@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   def list
     @lista = "lista firm ;-)"
     @companies = Company.all
-    byebug
+    
   end
 
 
