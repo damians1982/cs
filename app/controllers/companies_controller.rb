@@ -11,6 +11,7 @@ class CompaniesController < ApplicationController
     @nip = params[:m]
     @postal = params[:p]
     @street = params[:s]
+    @city = params[:c]
     @buttn =""
     #What we want now?
     #We want to know that this function was invoked by clicking the link_to
@@ -24,8 +25,9 @@ class CompaniesController < ApplicationController
       @company.nip = @nip
       @company.postal_code = @postal
       @company.street = @street
+      @company.city = @city
       @company.save
-      byebug
+      #byebug
     end
 
   end
