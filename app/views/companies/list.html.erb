@@ -12,7 +12,28 @@
 <div class="container">
   <h1>Companies#list</h1>
     <p>Find me in app/views/companies/list.html.erb</p>
-    
 
-    <p><%= @lista %></p>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name:</th>
+        <th>NIP: </th>
+        <th>Street: </th>
+        <th>Postal Code: </th>
+        <th>Utworzony: </th>
+        <th>Zmodyfikowany: </th>
+      </tr>
+      <% @companies.each do |item| %>
+      <tr>
+        <td><%=   item.id %></td>
+        <td><%= item.name %></td>
+        <td><%= item.nip %></td>
+        <td><%= item.street %></td>
+        <td><%= item.postal_code %></td>
+        <td><%= item.city %></td>
+        <td><%= item.created_at %></td>
+        <td><%= item.updated_at %></td>
+      </tr>
+      <% end %>
+    </table>
 </div>
