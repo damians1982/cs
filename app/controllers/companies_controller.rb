@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   def list
     @lista = "lista firm ;-)"
     @companies = Company.all
-    
+
   end
 
 
@@ -26,8 +26,12 @@ class CompaniesController < ApplicationController
       @company.postal_code = @postal
       @company.street = @street
       @company.city = @city
-      @company.save
-      #byebug
+      if(@company.valid?)
+        @company.save
+        @msg = "Company saved"
+      else
+        @msg = @company.errors.details[:city]
+      end
     end
 
   end
