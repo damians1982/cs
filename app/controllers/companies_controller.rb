@@ -33,6 +33,17 @@ class CompaniesController < ApplicationController
         @msg = @company.errors.details[:city]
       end
     end
+  end
 
+  def edit
+    @id = params[:id_company]
+    @work = "works"
+    @changed_flag ="no"
+
+    @company = Company.find_by(id: params[:id_company])
+    #User clicked save button
+    if(params[:button]=='yes')
+
+    end
   end
 end

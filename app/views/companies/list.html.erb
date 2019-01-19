@@ -25,7 +25,7 @@
       </tr>
       <% @companies.each do |item| %>
       <tr>
-        <td><%=   item.id %></td>
+        <td><%= item.id %></td>
         <td><%= item.name %></td>
         <td><%= item.nip %></td>
         <td><%= item.street %></td>
@@ -33,6 +33,12 @@
         <td><%= item.city %></td>
         <td><%= item.created_at %></td>
         <td><%= item.updated_at %></td>
+        <td>
+            <%= form_tag("/companies/edit", method: "patch") do %>
+            <%= hidden_field_tag(:id_company,item.id) %>
+            <%= submit_tag("Edit by form") %>
+            <% end %>
+        </td>
       </tr>
       <% end %>
     </table>

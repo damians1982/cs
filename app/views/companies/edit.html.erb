@@ -8,38 +8,39 @@
 </nav>
 </div>
 
+
 <div class="container">
-<h1>Companies#new</h1>
+<h1>Companies#Edit</h1>
 <p>Find me in app/views/companies/list.html.erb</p>
 
-<%= form_tag("/companies/new", method: "post") do %>
+<%= form_tag("/companies/edit", method: "post") do %>
   <%= label_tag(:n, "Name: ") %>
-  <%= text_field_tag(:n,value=@name) %>
+  <%= text_field_tag(:n,value=@company.name) %>
   </br>
 
   <%= label_tag(:m, "NIP: ") %>
-  <%= text_field_tag(:m,value=@nip) %>
+  <%= text_field_tag(:m,value=@company.nip) %>
   </br>
 
   <%= label_tag(:p,"Postal Code: ") %>
-  <%= text_field_tag(:p,value=@postal) %>
+  <%= text_field_tag(:p,value=@company.postal_code) %>
   </br>
 
   <%= label_tag(:c,"City: ") %>
-  <%= text_field_tag(:c,value=@city) %>
+  <%= text_field_tag(:c,value=@company.city) %>
   </br>
 
   <%= label_tag(:s,"Street: ") %>
-  <%= text_field_tag(:s,value=@street) %>
+  <%= text_field_tag(:s,value=@company.street) %>
   </br>
 
   <%= hidden_field_tag(:button,"yes") %>
 
-  <%= submit_tag("Save") %>
+  <%= submit_tag("Save changes") %>
 <% end %>
 
+<p>Flaga:<%= @changed_flag %></p>
+
 <% #byebug %>
-<p>Komunikaty</p>
-<p>Komunikat: <%= @msg %></p>
 
 </div>
