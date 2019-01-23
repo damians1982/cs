@@ -34,13 +34,13 @@
   <%= text_field_tag(:s,value=@company.street) %>
   </br>
 
-  <%= hidden_field_tag(:button,"yes") %>
+  <%= hidden_field_tag(:button,"save") %>
 
   <%= submit_tag("Save changes") %>
 <% end %>
 
 <p>Flaga:<%= @changed_flag %></p>
-
+<p>ITEM.NAME: <%= @item %>
 <% #byebug %>
 
 </div>

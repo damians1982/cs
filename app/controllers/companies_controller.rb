@@ -30,20 +30,26 @@ class CompaniesController < ApplicationController
         @company.save
         @msg = "Company saved"
       else
+        #To jest do dupy ;-)
         @msg = @company.errors.details[:city]
       end
     end
   end
 
   def edit
-    @id = params[:id_company]
-    @work = "works"
-    @changed_flag ="no"
+    @company = Company.new
+    #Reading from db again little senseless if we read all just in the moment
 
-    @company = Company.find_by(id: params[:id_company])
-    #User clicked save button
-    if(params[:button]=='yes')
+    #User clicked edit button from ../companies/list.html.erb
+    if(params[:button]=='edit')
+      #We read demanded row into var @company
+      @company = Company.find_by(id: params[:id_company])
+    end
+
+    #User clicked save button from ../companies/edit.html.erb
+    if(params[:button]=='save')
 
     end
+
   end
 end
