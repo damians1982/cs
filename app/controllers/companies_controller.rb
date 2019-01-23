@@ -37,19 +37,20 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = Company.new
-    #Reading from db again little senseless if we read all just in the moment
 
-    #User clicked edit button from ../companies/list.html.erb
-    if(params[:button]=='edit')
-      #We read demanded row into var @company
-      @company = Company.find_by(id: params[:id_company])
-    end
-
+    @par1 = ifUserClickedEdit
     #User clicked save button from ../companies/edit.html.erb
     if(params[:button]=='save')
 
     end
-
+    #byebug
   end
+
+  private
+    def  ifUserClickedEdit()
+      if(params[:id_company]!=nil)
+        #TODO handling DB ERROR
+        @company = Company.find_by(id: params[:id_company])
+      end
+    end
 end

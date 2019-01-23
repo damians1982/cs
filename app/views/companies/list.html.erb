@@ -36,7 +36,6 @@
         <td>
             <%= form_tag("/companies/edit", method: "patch") do %>
             <%= hidden_field_tag(:id_company,item.id) %>
-            <%= hidden_field_tag(:button,'edit') %>
             <%= submit_tag("Edit by form") %>
             <% end %>
         </td>
