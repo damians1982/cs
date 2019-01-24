@@ -34,7 +34,7 @@
   <%= text_field_tag(:s,value=@company.street) %>
   </br>
 
-  <%= hidden_field_tag(:button,"save") %>
+  <%= hidden_field_tag(:id,@company.id) %>
 
   <%= submit_tag("Save changes") %>
 <% end %>

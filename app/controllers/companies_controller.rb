@@ -2,7 +2,6 @@ class CompaniesController < ApplicationController
   def list
     @lista = "lista firm ;-)"
     @companies = Company.all
-
   end
 
 
@@ -37,13 +36,12 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-
-    @par1 = ifUserClickedEdit
-    #User clicked save button from ../companies/edit.html.erb
-    if(params[:button]=='save')
-
+    @company = ifUserClickedEdit
+    if(isUserClickedSave)
+      @company = userClickedSave
     end
-    #byebug
+
+
   end
 
   private
@@ -53,4 +51,26 @@ class CompaniesController < ApplicationController
         @company = Company.find_by(id: params[:id_company])
       end
     end
+
+    def isUserClickedSave
+        if(params[:id]!=nil)
+          return true
+        else
+          return false
+        end
+    end
+
+    def userClickedSave
+      if(params[:id]!=nil)
+        @company = Company.new
+        @company.id = params[:id]
+        @company.name = params[:n]
+        @company.nip = params[:m]
+        @company.postal_code = params[:p]
+        @company.city = params[:c]
+        @company.street = params[:s]
+        return @company
+      end
+    end
+
 end
