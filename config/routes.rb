@@ -1,4 +1,4 @@
-Rails.application.routes.draw do\
+Rails.application.routes.draw do
   root 'invoices_buy#list'
   get 'invoices_buy/list'
   get 'companies/list'
@@ -8,7 +8,7 @@ Rails.application.routes.draw do\
   get 'companies/edit'
   patch 'companies/edit'
 
-  #get 'companies/edit/:id' 
+  #get 'companies/edit/:id'
 
   get 'custom', action: :testing, controller: 'invoices_buy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
