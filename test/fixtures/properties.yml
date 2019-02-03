@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  nip: MyString
-  street: MyString
-  postal_code: MyString
+  regnum: MyString
+  info: MyText
 
 two:
   name: MyString
-  nip: MyString2
-  street: MyString
-  postal_code: MyString
+  regnum: MyString
+  info: MyText

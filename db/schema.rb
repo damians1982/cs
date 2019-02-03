@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_164210) do
+ActiveRecord::Schema.define(version: 2019_02_03_163719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2019_01_17_164210) do
     t.datetime "updated_at", null: false
     t.string "city"
     t.index ["nip"], name: "index_companies_on_nip", unique: true
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "name"
+    t.string "regnum"
+    t.text "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
