@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'properties/new'
+  post 'properties/new'
+  get 'properties/edit'
+  get 'properties/delete'
+  get 'properties/list'
+
   root 'invoices_buy#list'
   get 'invoices_buy/list'
   get 'companies/list'

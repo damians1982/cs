@@ -1,0 +1,19 @@
+<%= render 'properties/menu' %>
+
+<h3>New property</h3>
+
+
+<%= form_tag("/properties/new", method: "post") do %>
+  <%= label_tag(:n,"Property name: ") %>
+  <%= text_field_tag(:n) %>
+  </br>
+
+  <%= label_tag(":kw","Land and mortgage register number:") %>
+  <%= text_field_tag(":kw") %>
+  </br>
+
+  <%= label_tag(:desc,"Description: ") %>
+  <%= text_area_tag(:desc,"Enter description here ...", size: "30x6") %>
+
+  <%= submit_tag("Save") %>
+<% end %>
