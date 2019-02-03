@@ -38,7 +38,15 @@ class CompaniesController < ApplicationController
   def edit
     @company = ifUserClickedEdit
     if(isUserClickedSave)
-      @company = userClickedSave
+      #TODO - sprawdz czy nowe dane nie sa takie jak stare
+      #wyswietl
+      #1 - Sciagnij z db rekord o danym
+      #2 - porownuj rekord z danymi w formularzu
+      #2a - jesli takie same to nie zapisuj (poinformuj uzytkownika)
+      #2b - sprawdz, ktore
+      @company_db = Company.find_by(id: params[:id])
+      @company = copyFromForm2Local
+      copyFromLocal2Persisted(@company,@company_db)
     end
 
 
@@ -60,7 +68,7 @@ class CompaniesController < ApplicationController
         end
     end
 
-    def userClickedSave
+    def copyFromForm2Local
       if(params[:id]!=nil)
         @company = Company.new
         @company.id = params[:id]
@@ -71,6 +79,14 @@ class CompaniesController < ApplicationController
         @company.street = params[:s]
         return @company
       end
+    end
+
+    def copyFromLocal2Persisted(local,persisted)
+      persisted.name = local.name
+      persisted.nip = local.nip
+      persisted.postal_code = local.postal_code
+      persisted.city = local.city
+      persisted.street = local.street
     end
 
 end
