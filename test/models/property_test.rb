@@ -29,7 +29,10 @@ class PropertyTest < ActiveSupport::TestCase
     @tmp2.name = 'name1'
     @result2 = @tmp2.save
 
-    assert_not_equal(@result1,@result2)  
-
+    assert_not_equal(@result1,@result2)
+  end
+  test "name cannot be longer than 255" do
+    @property1.name = "a" * 256
+    assert_not @property1.valid?
   end
 end

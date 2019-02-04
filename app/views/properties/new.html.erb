@@ -3,17 +3,17 @@
 <h3>New property</h3>
 
 
-<%= form_tag("/properties/new", method: "post") do %>
-  <%= label_tag(:n,"Property name: ") %>
-  <%= text_field_tag(:n) %>
+<%= form_tag("/properties/save", method: "post") do %>
+  <%= label_tag(:name,"Property name: ") %>
+  <%= text_field_tag(:name) %>
   </br>
 
-  <%= label_tag(":kw","Land and mortgage register number:") %>
-  <%= text_field_tag(":kw") %>
+  <%= label_tag(:regnum,"Land and mortgage register number:") %>
+  <%= text_field_tag(":regnum") %>
   </br>
 
-  <%= label_tag(:desc,"Description: ") %>
-  <%= text_area_tag(:desc,"Enter description here ...", size: "30x6") %>
+  <%= label_tag(:info,"Description: ") %>
+  <%= text_area_tag(:info,"Enter additional information here ...", size: "30x6") %>
 
   <%= submit_tag("Save") %>
 <% end %>

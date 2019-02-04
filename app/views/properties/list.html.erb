@@ -11,15 +11,18 @@
     <th>Details</th>
     <th>Delete</th>
   </tr>
-  <tr>
-    <td>
-      <p> I AM PROPERTIES LIST (app/view/properties/list.html.erb) </p>
-    </td>
-    <td>
-      edit
-    </td>
-    <td>
-      delete
-    </td>
-  </tr>
+
+  <% @properties.each do |item| %>
+    <tr>
+      <td>
+        <%= item.name %>
+      </td>
+      <td>
+        edit
+      </td>
+      <td>
+        delete
+      </td>
+    </tr>
+  <% end %>
 </table>
