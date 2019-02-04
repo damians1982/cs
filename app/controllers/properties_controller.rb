@@ -22,6 +22,8 @@ class PropertiesController < ApplicationController
     @property.info = params[:info]
     if(@property.valid?)
       @property.save
+      render "save"
     end
+    render "invalid_data"
   end
 end

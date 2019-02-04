@@ -1,20 +1,22 @@
 <%= render 'properties/menu' %>
 
-<h3>New property</h3>
-
+<h3>Your data are invalid</h3>
 
 <%= form_tag("/properties/save", method: "post") do %>
   <%= label_tag(:name,"Property name: ") %>
-  <%= text_field_tag(:name) %>
+  <%= text_field_tag(:name,@property.name) %>
+  <%= @property.errors.messages[:name] %>
   </br>
 
   <%= label_tag(:regnum,"Land and mortgage register number:") %>
-  <%= text_field_tag(:regnum) %>
+  <%= text_field_tag(:regnum,@property.regnum) %>
+  <%= @property.errors.messages[:regnum] %>
   </br>
 
   <%= label_tag(:info,"Description: ") %>
   <%= text_area_tag(:info,"Enter additional information here ...", size: "30x6") %>
-
+  <%= @property.errors.messages[:info] %>
+  </br>
 
   <%= submit_tag("Save") %>
 <% end %>
