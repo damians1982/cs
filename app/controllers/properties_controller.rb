@@ -57,13 +57,7 @@ class PropertiesController < ApplicationController
     ## TODO:
     # 1 - get record from db by
     # 2 - put data from form into object representing record from
-    # 3 - if object is valid => save to db, render save_changes
-    # 4 - else => render invalid_changes, print error messages
-  end
-
-  private
-
-  def ifHaveId
-
+    # 3 - if object is valid => save to db, render save_changes - DONE
+    # 4 - else => render invalid_changes, print error messages - NOT FULLY DONE
   end
 end
