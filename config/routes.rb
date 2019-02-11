@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post 'properties/list'
   get 'properties/save'
   post 'properties/save'
+  patch 'properties/edit'
+  post 'properties/save_changes'
 
   root 'invoices_buy#list'
   get 'invoices_buy/list'

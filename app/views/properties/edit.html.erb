@@ -1,2 +1,29 @@
+<%= render 'properties/menu' %>
+
 <h1>Properties#edit</h1>
 <p>Find me in app/views/properties/edit.html.erb</p>
+
+
+<%= form_tag("/properties/save_changes") do %>
+  <%= label_tag(:name,"Property: name") %>
+  <%= text_field_tag(:name,value=@property.name) %>
+  </br>
+
+  <%= label_tag(:regnum,"Land and mortgage register number:") %>
+  <%= text_field_tag(:regnum,value=@property.regnum) %>
+  </br>
+
+  <%= label_tag(:info,"Description") %>
+  <%= text_area_tag(:info,value=@property.info) %>
+  </br>
+
+  <%= hidden_field_tag(:id,@property.id) %>
+
+  <%= submit_tag("Save changes") %>
+<% end %>
+
+</br>
+
+<%= form_tag("/properties/list") do %>
+  <%= submit_tag("Back to Properties List") %>
+<% end %>

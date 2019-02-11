@@ -1,3 +1,5 @@
+<%= render 'properties/menu' %>
+
 </br>
 
 <%= form_tag("/properties/new", method: "post") do %>
@@ -18,7 +20,10 @@
         <%= item.name %>
       </td>
       <td>
-        edit
+        <%= form_tag("/properties/edit", method: "patch") do %>
+          <%= hidden_field_tag("id_property",item.id) %>
+          <%= submit_tag("Edit by form") %>
+        <% end %>
       </td>
       <td>
         delete
