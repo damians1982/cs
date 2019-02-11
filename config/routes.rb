@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'properties/edit'
   get 'properties/delete'
   get 'properties/list'
+  post 'properties/list'
   get 'properties/save'
   post 'properties/save'
 
