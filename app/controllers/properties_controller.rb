@@ -23,7 +23,8 @@ class PropertiesController < ApplicationController
     if(@property.valid?)
       @property.save
       render "save"
+    else
+      render "invalid_data"
     end
-    render "invalid_data"
   end
 end
