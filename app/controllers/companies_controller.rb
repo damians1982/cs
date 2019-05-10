@@ -48,8 +48,13 @@ class CompaniesController < ApplicationController
       @company = copyFromForm2Local
       copyFromLocal2Persisted(@company,@company_db)
     end
+  end
 
-
+  def delete
+    #byebug
+    @id = params[:id]
+    @name = params[:name]
+    @info = params[:info]
   end
 
   private

@@ -20,8 +20,11 @@
         <th>NIP: </th>
         <th>Street: </th>
         <th>Postal Code: </th>
+        <th>City: </th>
         <th>Utworzony: </th>
         <th>Zmodyfikowany: </th>
+        <th>Edytuj</th>
+        <th>Usun</th>
       </tr>
       <% @companies.each do |item| %>
       <tr>
@@ -37,6 +40,14 @@
             <%= form_tag("/companies/edit", method: "patch") do %>
             <%= hidden_field_tag(:id_company,item.id) %>
             <%= submit_tag("Edit by form") %>
+            <% end %>
+        </td>
+        <td>
+            <%= form_tag("/companies/delete", method: "post") do %>
+            <%= hidden_field_tag(:id,value=item.id) %>
+            <%= hidden_field_tag(:name,value=item.name) %>
+            <%= hidden_field_tag(:info,"informacja tajna") %>
+            <%= submit_tag("Delete company") %>
             <% end %>
         </td>
       </tr>
