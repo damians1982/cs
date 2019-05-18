@@ -57,6 +57,11 @@ class CompaniesController < ApplicationController
     @info = params[:info]
   end
 
+  def delete2
+    @id_delete = params[:id_to_delete]
+    @deleted = Company.delete(@id_delete)
+  end
+
   private
     def  ifUserClickedEdit()
       if(params[:id_company]!=nil)

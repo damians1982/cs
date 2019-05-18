@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'companies/edit'
   patch 'companies/edit'
   post 'companies/delete'
+  post 'companies/delete2'
 
   #get 'companies/edit/:id'
 

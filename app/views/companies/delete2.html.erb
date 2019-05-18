@@ -12,25 +12,20 @@
 <h1>Companies#delete</h1>
 <p>Find me in app/views/companies/delete.html.erb</p>
 
-<p>Komunikat id = <%= @id %></p>
+<p>Komunikat id_delete = <%= @id_delete %></p>
 <p>Komunikat name = <%= @name %></p>
 <p>Komunikat info = <%= @info %></p>
 
 <p>Are you sure you want to delete company <%= @name %> ? </p>
+
 <table>
 <tr>
   <td>
-  <%= form_tag("/companies/delete2", method: "post") do %>
-    <%= hidden_field_tag(:id_to_delete,value=@id) %>
-    <%= submit_tag("Yes (delete2)") %>
-  <% end %>
-  </td>
-
-  <td>
   <%= form_tag("/companies/list", method: "get") do %>
-    <%= submit_tag("No. (back to companies list)") %>
+    <%= submit_tag("Back to companies list") %>
   <% end %>
   </td>
 </tr>
 </table>
+
 </div>
