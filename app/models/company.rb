@@ -3,6 +3,10 @@ class Company < ApplicationRecord
   validates :nip, uniqueness: true
 
   VALID_POSTAL_CODE_REGEX = /\d\d-\d\d\d/
-
   validates :postal_code, format: { with: VALID_POSTAL_CODE_REGEX }
+
+  #VALID_NIP_OR_PESEL = /(\d\d\d\d\d\d\d\d\d\d)|(\d\d\d\d\d\d\d\d\d\d\d)/
+  #VALID_NIP_OR_PESEL = /\d{10}/
+
+  #validates :nip, format: {with: VALID_NIP_OR_PESEL}
 end
