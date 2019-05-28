@@ -38,25 +38,39 @@ class CompanyTest < ActiveSupport::TestCase
     assert_not @company.valid?
   end
 
+  test "nip or pesel should not be valid - no1" do
+    @company.postal_code = "91-502"
+    @company.nip = "a5070048492"
+    assert_not @company.valid?
+  end
+
+  test "nip or pesel should not be valid - no2" do
+    @company.postal_code = "91-502"
+    @company.nip = "a12345678901"
+    assert_not @company.valid?
+  end
+
+  test "nip or pesel should not be valid - no3" do
+    @company.postal_code  = "91-502"
+    @company.nip = ".1234567890"
+    assert_not @company.valid?
+  end
+
+  test "nip or pesel should not be valid - no4" do
+    @company.postal_code = "91-502"
+    @company.nip = "-123.45678901"
+    assert_not @company.valid?
+  end
+
+  test "nip or pesel should not be valid - no5" do
+    @company.postal_code = "91-502"
+    @company.nip = "12d1234567890"
+    assert_not @company.valid?
+  end
+
+  test "nip or pesel should not be valid - no6" do
+    @company.postal_code = "91-502"
+    @company.nip = "123456789abcd12345678901"
+    assert_not @company.valid?
+  end
 end
-
-  #test "nip should not be valid" do
-  #  puts "putsuje"
-  #  #characters appended at the end and beginning
-  #  @company.nip ="a507-004-84-92v"
-  #  assert_not @company.valid?
-  #end
-
-  #test "nip should not be valid2" do
-  #  puts "putsuje"
-  #  #characters appended at the end
-  #  @company.nip ="507-004-84-92a"
-  #  assert_not @company.valid?
-  #end
-
-  #test "nip should not be valid3" do
-  #  puts "putsuje"
-  #  #characters appended at the end
-  #  @company.nip ="507-004-84-92."
-  #  assert_not @company.valid?
-  #end

@@ -5,8 +5,6 @@ class Company < ApplicationRecord
   VALID_POSTAL_CODE_REGEX = /\A\d\d-\d\d\d\z/
   validates :postal_code, format: { with: VALID_POSTAL_CODE_REGEX }
 
-  #VALID_NIP_OR_PESEL = /(\d\d\d\d\d\d\d\d\d\d)|(\d\d\d\d\d\d\d\d\d\d\d)/
-  #VALID_NIP_OR_PESEL = /\d{10}/
-
-  #validates :nip, format: {with: VALID_NIP_OR_PESEL}
+  VALID_NIP_OR_PESEL = /\A\d{10,11}\z/
+  validates :nip, format: {with: VALID_NIP_OR_PESEL}
 end
