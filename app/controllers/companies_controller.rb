@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
 
   def new
     #params[:type] is our radio button
-    @type = params[:type]
+    @type = params[:company_type]
 
     @name = params[:n]
     @family_name = params[:fn]
@@ -28,14 +28,14 @@ class CompaniesController < ApplicationController
       @button = "yes"
       @company = Company.new
         if(@type=='company')
-          @company.type = true
+          @company.company_type = true
         else
-          @company.type = false
+          @company.company_type = false
         end
       @company.name = @name
       @company.family_name = @family_name
       @company.nip = @nip
-        if(@company.type==false)
+        if(@company.company_type==false)
           @company.nip = @pesel
         end
       # TO DO sprawdzić poprzez wyswietlenie czy checkbox dziala

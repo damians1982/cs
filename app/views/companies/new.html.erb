@@ -15,10 +15,10 @@
 
 
 <%= form_tag("/companies/new", method: "post") do %>
-  <%= radio_button_tag(:type,"company") %>
-  <%= label_tag(:type_company, "New company") %>
-  <%= radio_button_tag(:type,"person") %>
-  <%= label_tag(:type_person, "New private person") %>
+  <%= radio_button_tag(:company_type,"company") %>
+  <%= label_tag(:company_type_company, "New company") %>
+  <%= radio_button_tag(:company_type,"person") %>
+  <%= label_tag(:company_type_person, "New private person") %>
 
   <table>
     <tr>
