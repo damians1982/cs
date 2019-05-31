@@ -6,8 +6,15 @@ class CompaniesController < ApplicationController
 
 
   def new
+    #params[:type] is our radio button
+    @type = params[:type]
+
     @name = params[:n]
+    @family_name = params[:fn]
     @nip = params[:m]
+
+    #REMEMBER that pesel we save instead of nip
+    @pesel = params[:ps]
     @postal = params[:p]
     @street = params[:s]
     @city = params[:c]
@@ -20,8 +27,20 @@ class CompaniesController < ApplicationController
     if(params[:button]=='yes')
       @button = "yes"
       @company = Company.new
+        if(@type=='company')
+          @company.type = true
+        else
+          @company.type = false
+        end
       @company.name = @name
+      @company.family_name = @family_name
       @company.nip = @nip
+        if(@company.type==false)
+          @company.nip = @pesel
+        end
+      # TO DO sprawdzić poprzez wyswietlenie czy checkbox dziala
+      #PESEL not implemented
+
       @company.postal_code = @postal
       @company.street = @street
       @company.city = @city
@@ -30,7 +49,7 @@ class CompaniesController < ApplicationController
         @msg = "Company saved"
       else
         #To jest do dupy ;-)
-        @msg = @company.errors.details[:city]
+        @msg = @company.errors.details
       end
     end
   end

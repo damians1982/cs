@@ -12,14 +12,42 @@
 <h1>Companies#new</h1>
 <p>Find me in app/views/companies/list.html.erb</p>
 
-<%= form_tag("/companies/new", method: "post") do %>
-  <%= label_tag(:n, "Name: ") %>
-  <%= text_field_tag(:n,value=@name) %>
-  </br>
 
-  <%= label_tag(:m, "NIP: ") %>
-  <%= text_field_tag(:m,value=@nip) %>
-  </br>
+
+<%= form_tag("/companies/new", method: "post") do %>
+  <%= radio_button_tag(:type,"company") %>
+  <%= label_tag(:type_company, "New company") %>
+  <%= radio_button_tag(:type,"person") %>
+  <%= label_tag(:type_person, "New private person") %>
+
+  <table>
+    <tr>
+      <td>
+        <%= label_tag(:n, "Name: ") %>
+        <%= text_field_tag(:n,value=@name) %>
+        </br>
+      </td>
+      <td>
+        <%= label_tag(:fn, "Family Name (for private persons): ") %>
+        <%= text_field_tag(:fn,value=@name) %>
+        </br>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>
+        <%= label_tag(:m, "NIP: ") %>
+        <%= text_field_tag(:m,value=@nip) %>
+        </br>
+      </td>
+      <td>
+        <%= label_tag(:ps, "PESEL (for private persons):") %>
+        <%= text_field_tag(:ps,value=@nip) %>
+      </td>
+    </tr>
+  <table>
 
   <%= label_tag(:p,"Postal Code: ") %>
   <%= text_field_tag(:p,value=@postal) %>
@@ -41,5 +69,6 @@
 <% #byebug %>
 <p>Komunikaty</p>
 <p>Komunikat: <%= @msg %></p>
+<p>Type: <%= @type %></p>
 
 </div>
