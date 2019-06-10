@@ -13,11 +13,10 @@
   <h1>Companies#list</h1>
     <p>Find me in app/views/companies/list.html.erb</p>
 
-    <table>
+    <table border="1">
       <tr>
         <th>ID</th>
         <th>Name:</th>
-        <th>Family name:</th>
         <th>(NIP | PESEL ) </th>
         <th>Street: </th>
         <th>Postal Code: </th>
@@ -30,9 +29,44 @@
       <% @companies.each do |item| %>
       <tr>
         <td><%= item.id %></td>
-        <td><%= item.name %></td>
-        <td><%= item.family_name %></td>
-        <td><%= item.nip %></td>
+        <td>
+          <table>
+            <tr>
+              <td><%= item.name %></td>
+            </tr>
+            <tr>
+              <td><%= item.family_name %>
+              <% if(item.company_type==true) %>
+
+              <% elsif(item.company_type==nil) %>
+                (TYPE ERROR)
+              <% else %>
+                <% item.family_name %>
+              <% end %>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td>
+          <table>
+            <tr>
+              <td>
+                <% if(item.company_type==true) %>
+                  (NIP)
+                <% elsif(item.company_type==nil) %>
+                  (TYPE ERROR)
+                <% else %>
+                  (PESEL)
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= item.nip %>
+              </td>
+            </tr>
+          </table>
+        </td>
         <td><%= item.street %></td>
         <td><%= item.postal_code %></td>
         <td><%= item.city %></td>
