@@ -2,9 +2,6 @@ class PropertiesController < ApplicationController
   def new
   end
 
-  def edit
-  end
-
   def delete
   end
 
