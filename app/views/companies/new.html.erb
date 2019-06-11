@@ -23,31 +23,29 @@
   <table>
     <tr>
       <td>
-        <%= label_tag(:n, "Name: ") %>
-        <%= text_field_tag(:n,value=@name) %>
-        </br>
+
       </td>
       <td>
-        <%= label_tag(:fn, "Family Name (for private persons): ") %>
-        <%= text_field_tag(:fn,value=@name) %>
-        </br>
+
       </td>
     </tr>
   </table>
 
-  <table>
-    <tr>
-      <td>
-        <%= label_tag(:m, "NIP: ") %>
-        <%= text_field_tag(:m,value=@nip) %>
-        </br>
-      </td>
-      <td>
-        <%= label_tag(:ps, "PESEL (for private persons):") %>
-        <%= text_field_tag(:ps,value=@nip) %>
-      </td>
-    </tr>
-  <table>
+  <%= label_tag(:n, "Name: ") %>
+  <%= text_field_tag(:n,value=@name) %>
+  </br>
+
+  <%= label_tag(:fn, "Family Name (for private persons): ") %>
+  <%= text_field_tag(:fn,value=@name) %>
+  </br>
+
+  <%= label_tag(:m, "NIP: ") %>
+  <%= text_field_tag(:m,value=@nip) %>
+  </br>
+
+  <%= label_tag(:ps, "PESEL (for private persons):") %>
+  <%= text_field_tag(:ps,value=@nip) %>
+  </br>
 
   <%= label_tag(:p,"Postal Code: ") %>
   <%= text_field_tag(:p,value=@postal) %>
