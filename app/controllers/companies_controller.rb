@@ -4,7 +4,6 @@ class CompaniesController < ApplicationController
     @companies = Company.all
   end
 
-
   def new
     #params[:type] is our radio button
     @type = params[:company_type]
@@ -85,6 +84,7 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = ifUserClickedEdit
+    #byebug
     if(isUserClickedSave)
       #TODO - sprawdz czy nowe dane nie sa takie jak stare
       #wyswietl
@@ -96,6 +96,12 @@ class CompaniesController < ApplicationController
       @company = copyFromForm2Local
       copyFromLocal2Persisted(@company,@company_db)
     end
+  end
+
+  def edit2
+    puts "AAA"
+    puts params[:id_company]
+    puts "BBB"
   end
 
   def delete
@@ -128,7 +134,7 @@ class CompaniesController < ApplicationController
     #method
     def copyFromForm2Local
       if(params[:id]!=nil)
-        byebug
+        #byebug
         puts 'copyFromForm2Local cos dla ciebie robi'
         @company = Company.new
         @company.id = params[:id]

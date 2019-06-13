@@ -74,7 +74,7 @@
         <td><%= item.created_at %></td>
         <td><%= item.updated_at %></td>
         <td>
-            <%= form_tag("/companies/edit", method: "patch") do %>
+            <%= form_tag("/companies/edit2", method: "patch") do %>
             <%= hidden_field_tag(:id_company,item.id) %>
             <%= submit_tag("Edit by form") %>
             <% end %>

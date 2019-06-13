@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post 'companies/new2'
   get 'companies/validate_company'
   post 'companies/validate_company'
+  patch 'companies/edit2'
 
   #get 'companies/edit/:id'
 
