@@ -10,53 +10,55 @@
 </div>
 
 <div class="container">
-<h1>Companies#new</h1>
-<p>Find me in app/views/companies/new.html.erb</p>
+<h1>Companies#make_corrections</h1>
+<p>Find me in app/views/companies/make_corrections.html.erb</p>
+<p>Niestety trzeba zrobić poprawki</p>
+</br>
 
 
-
-<%= form_tag("/companies/new", method: "post") do %>
+<%= form_tag("/companies/validate_company", method: "post") do %>
   <%= radio_button_tag(:company_type,"company") %>
   <%= label_tag(:company_type_company, "New company") %>
   <%= radio_button_tag(:company_type,"person") %>
   <%= label_tag(:company_type_person, "New private person") %>
+  </br>
 
   <%= label_tag(:n, "Name: ") %>
-  <%= text_field_tag(:n,value=@name) %>
+  <%= text_field_tag(:n,value=@company[:name]) %>
+  <%= @errors1[:name] %>
   </br>
 
   <%= label_tag(:fn, "Family Name (for private persons): ") %>
-  <%= text_field_tag(:fn,value=@family_name) %>
+  <%= text_field_tag(:fn,value=@company[:family_name]) %>
+  <%= @errors1[:family_name] %>
   </br>
 
   <%= label_tag(:m, "NIP: ") %>
-  <%= text_field_tag(:m,value=@nip) %>
+  <%= text_field_tag(:m,value=@company[:nip]) %>
+  <%= @errors1[:nip] %>
   </br>
 
   <%= label_tag(:ps, "PESEL (for private persons):") %>
   <%= text_field_tag(:ps,value=@nip) %>
+  <%= @errors1[:pesel] %>
   </br>
 
   <%= label_tag(:p,"Postal Code: ") %>
-  <%= text_field_tag(:p,value=@postal) %>
+  <%= text_field_tag(:p,value=@company[:postal_code]) %>
+  <%= @errors1[:postal_code] %>
   </br>
 
   <%= label_tag(:c,"City: ") %>
-  <%= text_field_tag(:c,value=@city) %>
+  <%= text_field_tag(:c,value=@company[:city]) %>
+  <%= @errors1[:city] %>
   </br>
 
   <%= label_tag(:s,"Street: ") %>
-  <%= text_field_tag(:s,value=@street) %>
+  <%= text_field_tag(:s,value=@company[:street]) %>
+  <%= @errors1[:street] %>
   </br>
 
   <%= hidden_field_tag(:button,"yes") %>
 
-  <%= submit_tag("Save") %>
+  <%= submit_tag("Wyślij ponownie") %>
 <% end %>
-
-<% #byebug %>
-<p>Komunikaty</p>
-<p>Komunikat: <%= @msg %></p>
-<p>Type: <%= @type %></p>
-
-</div>

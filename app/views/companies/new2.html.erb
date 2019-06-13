@@ -10,23 +10,22 @@
 </div>
 
 <div class="container">
-<h1>Companies#new</h1>
-<p>Find me in app/views/companies/new.html.erb</p>
+<h1>Companies#new2</h1>
+<p>Find me in app/views/companies/new2.html.erb</p>
 
-
-
-<%= form_tag("/companies/new", method: "post") do %>
+<%= form_tag("/companies/validate_company", method: "post") do %>
   <%= radio_button_tag(:company_type,"company") %>
   <%= label_tag(:company_type_company, "New company") %>
   <%= radio_button_tag(:company_type,"person") %>
   <%= label_tag(:company_type_person, "New private person") %>
+  </br>
 
   <%= label_tag(:n, "Name: ") %>
   <%= text_field_tag(:n,value=@name) %>
   </br>
 
   <%= label_tag(:fn, "Family Name (for private persons): ") %>
-  <%= text_field_tag(:fn,value=@family_name) %>
+  <%= text_field_tag(:fn,value=@name) %>
   </br>
 
   <%= label_tag(:m, "NIP: ") %>
@@ -51,7 +50,7 @@
 
   <%= hidden_field_tag(:button,"yes") %>
 
-  <%= submit_tag("Save") %>
+  <%= submit_tag("Wyślij") %>
 <% end %>
 
 <% #byebug %>

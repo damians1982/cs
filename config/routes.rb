@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   patch 'properties/edit'
   post 'properties/save_changes'
 
+
+
   root 'invoices_buy#list'
   get 'invoices_buy/list'
   get 'companies/list'
@@ -20,6 +22,11 @@ Rails.application.routes.draw do
   patch 'companies/edit'
   post 'companies/delete'
   post 'companies/delete2'
+
+  get 'companies/new2'
+  post 'companies/new2'
+  get 'companies/validate_company'
+  post 'companies/validate_company'
 
   #get 'companies/edit/:id'
 
