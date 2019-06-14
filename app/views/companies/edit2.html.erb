@@ -14,13 +14,39 @@
 <h1>Companies#Edit2</h1>
 <p>Find me in app/views/companies/edit2.html.erb</p>
 
-<%= form_tag("/companies/edit", method: "post") do %>
+<%= form_tag("/companies/edit2", method: "post") do %>
+  <% if(@radio_company=='true')%>
+    <%= radio_button_tag(:company_type,"company",checked="true") %>
+    <%= label_tag(:company_type_company, "New company") %>
+    <%= radio_button_tag(:company_type,"person") %>
+    <%= label_tag(:company_type_person, "New private person") %>
+  <% elsif(@radio_company=='false') %>
+    <%= radio_button_tag(:company_type,"company") %>
+    <%= label_tag(:company_type_company, "New company") %>
+    <%= radio_button_tag(:company_type,"person",checked="true") %>
+    <%= label_tag(:company_type_person, "New private person") %>
+  <% else %>
+    <%= radio_button_tag(:company_type,"company",checked="true") %>
+    <%= label_tag(:company_type_company, "New company") %>
+    <%= radio_button_tag(:company_type,"person") %>
+    <%= label_tag(:company_type_person, "New private person") %>
+  <% end %>
+  </br>
+
   <%= label_tag(:n, "Name: ") %>
-  <%= text_field_tag(:n,value="1") %>
+  <%= text_field_tag(:n,value=@company.name) %>
+  </br>
+
+  <%= label_tag(:fn, "Family Name (for private persons): ") %>
+  <%= text_field_tag(:fn,value=@company.family_name) %>
   </br>
 
   <%= label_tag(:m, "NIP: ") %>
-  <%= text_field_tag(:m,value="1") %>
+  <%= text_field_tag(:m,value=1) %>
+  </br>
+
+  <%= label_tag(:ps, "PESEL (for private persons):") %>
+  <%= text_field_tag(:ps,value=@nip) %>
   </br>
 
   <%= label_tag(:p,"Postal Code: ") %>
@@ -40,8 +66,7 @@
   <%= submit_tag("Save changes") %>
 <% end %>
 
-<p>Flaga:<%= @changed_flag %></p>
-<p>ITEM.NAME: <%= @item %>
-<% #byebug %>
-
+<%= form_tag("/companies/list", method: "post") do %>
+  <%= submit_tag("Powrot do listy") %>
+<% end %>
 </div>

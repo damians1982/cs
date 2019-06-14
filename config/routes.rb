@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   root 'invoices_buy#list'
   get 'invoices_buy/list'
   get 'companies/list'
+  post 'companies/list'
   get 'companies/new'
   post 'companies/new'
   post 'companies/edit'

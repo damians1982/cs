@@ -100,8 +100,32 @@ class CompaniesController < ApplicationController
 
   def edit2
     puts "AAA"
-    puts params[:id_company]
+    @company = Company.find_by(id: params[:id_company])
+    @radio_company =""
+    @radio_person = ""
+    if(@company.company_type)
+      puts "mamy prawde"
+      @radio_company = "true"
+      @radio_person = "false"
+    else
+      puts "mamy nie prawde"
+      @radio_company = "false"
+      @radio_person = "true"
+    end
     puts "BBB"
+    #byebug
+    #Jesli company_type == true
+      #to radio_company == "true"
+      #to radio_person == "false"
+    #Jesli company_type == false
+      #to radio_company == "false"
+      #to radio_company == "true"
+    #w przeciwnym wypadku
+      #to nic
+
+
+
+    #byebug
   end
 
   def delete
@@ -131,10 +155,8 @@ class CompaniesController < ApplicationController
         end
     end
 
-    #method
     def copyFromForm2Local
       if(params[:id]!=nil)
-        #byebug
         puts 'copyFromForm2Local cos dla ciebie robi'
         @company = Company.new
         @company.id = params[:id]
@@ -156,7 +178,6 @@ class CompaniesController < ApplicationController
     end
 
     def copyFromForm2Local2
-      puts 'copyFromForm2Local2 cos dla ciebie robi'
       @company = Company.new
       @company.company_type = params[:company_type]
       @company.id = params[:id]
@@ -166,7 +187,6 @@ class CompaniesController < ApplicationController
         if(params[:company_type]=='person')
           #Zapisać PESEL w miejscu nip
           @company.nip = params[:ps]
-          puts "fajne pesel nadpisuje nip"
         end
       @company.postal_code = params[:p]
       @company.city = params[:c]
