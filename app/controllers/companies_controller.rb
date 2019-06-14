@@ -106,6 +106,16 @@ class CompaniesController < ApplicationController
     else
       @radio_company = "false"
     end
+    #byebug
+  end
+
+  def update
+    #jesli udalo sie zupdatowac to
+      #render saved
+    #jesli sie nie udalo to wyswietl edit2 ponownie
+      #render edit2
+
+    #TODO find_by(id: params[:id_company])
   end
 
   def delete

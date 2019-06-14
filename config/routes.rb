@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   root 'invoices_buy#list'
   get 'invoices_buy/list'
+
   get 'companies/list'
   post 'companies/list'
   get 'companies/new'
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   post 'companies/new2'
   get 'companies/validate_company'
   post 'companies/validate_company'
-  patch 'companies/edit2'
+  post 'companies/edit2'
 
   #get 'companies/edit/:id'
 
