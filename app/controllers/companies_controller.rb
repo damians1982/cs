@@ -110,12 +110,25 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    #jesli udalo sie zupdatowac to
-      #render saved
-    #jesli sie nie udalo to wyswietl edit2 ponownie
-      #render edit2
+    @company = Company.new
+    #In @errors1 we store our error messages for the user
+    @errors1 = Hash.new
+    @errors1 = fillErrorMessages(@errors1)
+    @company = copyFromForm2Local2()
 
-    #TODO find_by(id: params[:id_company])
+      ## TODO: wyglada na to ze copyFromForm2Local2 nie przepisuje
+      ## TODO: parametru
+      @company.id = params[:id_company]
+
+    result = ctrl_valid(@company,@errors1)
+
+    byebug
+
+    if(result == true)
+      render 'saved'
+    else
+      render 'edit2'
+    end
   end
 
   def delete

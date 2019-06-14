@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   post 'companies/validate_company'
   post 'companies/edit2'
 
+  patch 'companies/update'
+
   #get 'companies/edit/:id'
 
   get 'custom', action: :testing, controller: 'invoices_buy'
