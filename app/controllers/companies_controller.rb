@@ -99,33 +99,13 @@ class CompaniesController < ApplicationController
   end
 
   def edit2
-    puts "AAA"
     @company = Company.find_by(id: params[:id_company])
     @radio_company =""
-    @radio_person = ""
     if(@company.company_type)
-      puts "mamy prawde"
       @radio_company = "true"
-      @radio_person = "false"
     else
-      puts "mamy nie prawde"
       @radio_company = "false"
-      @radio_person = "true"
     end
-    puts "BBB"
-    #byebug
-    #Jesli company_type == true
-      #to radio_company == "true"
-      #to radio_person == "false"
-    #Jesli company_type == false
-      #to radio_company == "false"
-      #to radio_company == "true"
-    #w przeciwnym wypadku
-      #to nic
-
-
-
-    #byebug
   end
 
   def delete
