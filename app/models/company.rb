@@ -1,4 +1,6 @@
 class Company < ApplicationRecord
+  #Class represents tenants who have lease agreement in tenement house
+
   validates :name,:street,:city,:postal_code,:nip, presence: true
   validates :nip, uniqueness: true
 
